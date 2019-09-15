@@ -16,12 +16,12 @@ class NovaImagem extends Mutation
         'name' => 'novaImagem'
     ];
 
-    public function type()
+    public function type(): Type
     {
         return GraphQL::type('Imagem');
     }
 
-    public function args()
+    public function args(): array
     {
         return [
             'is_principal' => [
