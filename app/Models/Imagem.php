@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,7 +15,7 @@ class Imagem extends Model
         "link",
         "descricao_imagem"
     ];
-    
+
     public function usuario(){
         return $this->hasMany(User::class, 'id_imagem', 'id');
     }
