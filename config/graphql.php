@@ -123,6 +123,8 @@ return [
     // ]
     //
     'types' => [
+        'User' => \App\GraphQL\Type\UserType::class,
+        'Imagem' => \App\GraphQL\Type\ImagemType::class 
         // 'example'           => ExampleType::class,
         // 'relation_example'  => ExampleRelationType::class,
         // \Rebing\GraphQL\Support\UploadType::class,
