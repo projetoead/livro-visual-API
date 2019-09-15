@@ -15,7 +15,7 @@ class ImagemType extends GraphQLType
         'model'       => Imagem::class
     ];
 
-    public function fields()
+    public function fields(): array
     {
         return [
             'id' => [
@@ -44,14 +44,14 @@ class ImagemType extends GraphQLType
             ],
         ];
     }
-    
+
     protected function resolveCreatedAtField($root, $args)
     {
-      return (string) $root->created_at;
+        return (string) $root->created_at;
     }
-  
+
     protected function resolveUpdatedAtField($root, $args)
     {
-      return (string) $root->updated_at;
+        return (string) $root->updated_at;
     }
 }

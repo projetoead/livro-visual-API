@@ -15,7 +15,7 @@ class UserType extends GraphQLType
         'model'       => User::class
     ];
 
-    public function fields()
+    public function fields(): array
     {
         return [
             'id' => [
@@ -53,7 +53,7 @@ class UserType extends GraphQLType
             'updated_at' => [
                 'type' => Type::string(),
                 'description' => 'Date a was updated'
-            ],
+            ]
         ];
     }
 
