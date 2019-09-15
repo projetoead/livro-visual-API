@@ -16,12 +16,12 @@ class SignUpMutation extends Mutation
         'name' => 'signUp'
     ];
 
-    public function type()
+    public function type(): Type
     {
         return GraphQL::type('User');
     }
 
-    public function args()
+    public function args(): array
     {
         return [
             'name' => [
