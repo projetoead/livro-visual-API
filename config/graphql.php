@@ -101,7 +101,9 @@ return [
     'schemas' => [
         'default' => [
             'query' => [
-                // 'example_query' => ExampleQuery::class,
+                'allUsers' => \App\GraphQL\Query\AllUsersQuery::class,
+                'logIn' => \App\GraphQL\Query\LogInQuery::class,
+                'infoUsuario' => \App\GraphQL\Query\UserQuery::class
             ],
             'mutation' => [
                 'signUp' => \App\GraphQL\Mutation\SignUpMutation::class,
