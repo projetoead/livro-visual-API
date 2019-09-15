@@ -45,7 +45,7 @@ return [
     'controllers' => \Rebing\GraphQL\GraphQLController::class.'@query',
 
     // Any middleware for the graphql route group
-    'middleware' => [],
+    'middleware' => ['cors'],
 
     // Additional route group attributes
     //
@@ -104,9 +104,11 @@ return [
                 // 'example_query' => ExampleQuery::class,
             ],
             'mutation' => [
-                // 'example_mutation'  => ExampleMutation::class,
+                'signUp' => \App\GraphQL\Mutation\SignUpMutation::class,
+                'novaImagem' => \App\GraphQL\Mutation\NovaImagem::class,
+                'alterarImagem' => \App\GraphQL\Mutation\AlterarImagem::class
             ],
-            'middleware' => [],
+            'middleware' => ['cors'],
             'method'     => ['get', 'post'],
         ],
     ],
