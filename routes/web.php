@@ -12,5 +12,6 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    // return view('welcome');
+    return File::get(public_path() . '/public/sistema/index.html');
 });
