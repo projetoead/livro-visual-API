@@ -65,6 +65,11 @@ class NovaAtividade extends Mutation
                 'description' => 'O titulo da atividade',
                 'rules' => ['required']
             ],
+            'autor' => [
+                'type' => Type::nonNull(Type::string()),
+                'description' => 'O autor do texto atividade',
+                'rules' => ['required']
+            ],
             'texto' => [
                 'type' => Type::nonNull(Type::string()),
                 'description' => 'O texto da atividade',

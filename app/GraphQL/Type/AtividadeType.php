@@ -37,6 +37,10 @@ class AtividadeType extends GraphQLType
                 'type' => Type::nonNull(Type::string()),
                 'description' => 'O texto da atividade'
             ],
+            'autor' => [
+                'type' => Type::nonNull(Type::string()),
+                'description' => 'O autor do texto da atividade'
+            ],
             'descricao' => [
                 'type' =>Type::string(),
                 'description' => 'Descrição da atividade'

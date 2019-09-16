@@ -12,6 +12,7 @@ class Atividade extends Model
         'id_usuario',
         'id_professor',
         'titulo',
+        'autor',
         'texto',
         'descricao',
         'data_encerramento',
