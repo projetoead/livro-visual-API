@@ -112,7 +112,6 @@ class NovaAtividade extends Mutation
             $imagem->save();
             array_push($id_imagens, $imagem->id);
         }
-        $args['id_imagem'] = $id_imagens[0];
         $atividade = new Atividade();
         $atividade->fill($args);
         $atividade->save();
