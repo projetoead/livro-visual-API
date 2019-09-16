@@ -14,7 +14,8 @@ class AddDescricao extends Migration
     public function up()
     {
         Schema::table('atividades', function (Blueprint $table) {
-            $table->longText('descricao');
+            $table->longText('descricao')->nullable()->change();
+            $table->string('autor');
         });
     }
 
