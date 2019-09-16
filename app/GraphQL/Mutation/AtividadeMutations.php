@@ -9,6 +9,7 @@ use Rebing\GraphQL\Support\Mutation;
 use GraphQL\Type\Definition\InputObjectType;
 use App\Models\Atividade;
 use App\Models\AtividadeImagens;
+use App\Models\Imagem;
 use GraphQL;
 
 
