@@ -19,4 +19,8 @@ class Imagem extends Model
     public function usuario(){
         return $this->hasMany(User::class, 'id_imagem', 'id');
     }
+
+    public function atividade_imagens(){
+        return $this->hasMany(Atividade::class, 'id_imagem', 'id');
+    }
 }

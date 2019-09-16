@@ -13,6 +13,11 @@ class AtividadeImagens extends Model
         'id_imagem'
     ];
 
+    public function usuario()
+    {
+        return $this->belongsTo(User::class, 'id_usuario');
+    }
+    
     public function imagem()
     {
         return $this->belongsTo(Imagem::class, 'id_imagem');
@@ -21,5 +26,10 @@ class AtividadeImagens extends Model
     public function atividade()
     {
         return $this->belongsTo(Atividade::class, 'id_atividade');
+    }
+
+    public function atividadeImagens()
+    {
+        return $this->hasMany(AtividadeImagens::class, 'id_atividade', 'id');
     }
 }
