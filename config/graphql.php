@@ -104,7 +104,8 @@ return [
                 'allUsers' => \App\GraphQL\Query\AllUsersQuery::class,
                 'logIn' => \App\GraphQL\Query\LogInQuery::class,
                 'infoUsuario' => \App\GraphQL\Query\UserQuery::class,
-                'buscarAtividades' => \App\GraphQL\Query\BuscarAtividadesQuery::class
+                'buscarAtividades' => \App\GraphQL\Query\BuscarAtividadesQuery::class,
+                'retornarAtividade' => \App\GraphQL\Query\RetornarAtividadeQuery::class
             ],
             'mutation' => [
                 'signUp' => \App\GraphQL\Mutation\SignUpMutation::class,
