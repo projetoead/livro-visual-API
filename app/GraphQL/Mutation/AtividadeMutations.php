@@ -60,10 +60,6 @@ class NovaAtividade extends Mutation
                 'type' => Type::int(),
                 'description' => 'O id do professor responsável pela atividade'
             ],
-            'imagens' => [
-                'type' => Type::listOf($imagens),
-                'description' => 'Lista de Imagens da obra'
-            ],
             'titulo' => [
                 'type' => Type::nonNull(Type::string()),
                 'description' => 'O titulo da atividade',
@@ -100,7 +96,7 @@ class NovaAtividade extends Mutation
             'api_key' => '617162164254321',
             'api_secret' => '_OO4q-k2kVsKRhCIcq67S8bPTFs'
         ));
-        
+
         $fields = $resolveInfo->getFieldSelection();
         $id_imagens = [];
         foreach($args['imagens'] as $value){
