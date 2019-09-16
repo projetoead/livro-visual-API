@@ -24,6 +24,6 @@
 
             $atividades = Atividade::query();
 
-            return $atividades->get();
+            return $atividades->with($with)->get();
         }
     }
