@@ -5,6 +5,8 @@
 
     RewriteEngine On
 
+     AddType text/javascript js mjs
+
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
