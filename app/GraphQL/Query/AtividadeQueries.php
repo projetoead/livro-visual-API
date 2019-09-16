@@ -14,6 +14,13 @@
             'name' => 'buscarAtividades'
         ];
 
+        public function args(): array
+        {
+            return [
+                'texto' => ['name' => 'texto', 'type' => Type::string()]
+            ];
+        }
+    
         public function type(): Type{
             return Type::listOf(GraphQL::type('Atividade'));
         }
@@ -21,6 +28,13 @@
         public function resolve($root, $args, SelectFields $fields, ResolveInfo $info){
             $select = $fields->getSelect();
             $with = $fields->getRelations();
+
+            if (isset($args['texto'])) {
+                $atividade = Atividade::query()
+                    ->where('titulo', 'LIKE', '%' . $args['texto'] . '%');
+    
+                return $atividade->with($with)->get();
+            }
 
             $atividades = Atividade::query();
 
