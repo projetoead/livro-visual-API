@@ -120,8 +120,9 @@ class NovaAtividade extends Mutation
         foreach($id_imagens as $id_imagem){
             $imagem_lancamento = new AtividadeImagens();
             $imagem_lancamento->id_imagem = $id_imagem;
-            $imagem_lancamento->id_lancamentos = $atividade->id;
+            $imagem_lancamento->id_atividade = $atividade->id;
             $imagem_lancamento->save();
         }
+        return $atividade;
     }
 }
