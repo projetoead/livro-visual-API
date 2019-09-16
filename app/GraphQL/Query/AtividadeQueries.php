@@ -26,18 +26,36 @@
         }
 
         public function resolve($root, $args, $context, ResolveInfo $info){
-            // $select = $fields->getSelect();
-            // $with = $fields->getRelations();
-
-            // if (isset($args['texto'])) {
-            //     $atividade = Atividade::query()
-            //         ->where('titulo', 'LIKE', '%' . $args['texto'] . '%');
-    
-            //     return $atividade->with($with)->get();
-            // }
+            $fields = $info->getFieldSelection();
 
             $atividades = Atividade::query();
 
             return $atividades->get();
+        }
+    }
+
+    class RetornarAtividadeQuery extends Query {
+        protected $atributes = [
+            'name' => 'retornarAtividade'
+        ];
+
+        public function args(): array
+        {
+            return [
+                'id_atividade' => ['name' => 'id_atividade', 'type' => Type::nonNull(Type::int())],
+            ];
+        }
+    
+        public function type(): Type{
+            return GraphQL::type('Atividade');
+        }
+
+        public function resolve($root, $args, $context, ResolveInfo $info){
+            $fields = $info->getFieldSelection();
+
+            $atividade = Atividade::query()
+                ->where('id', $args['id_atividade']);
+
+            return $atividade->get()[0];
         }
     }
