@@ -36,7 +36,7 @@
 
         public function type(): Type
         {
-            return Type::listOf(GraphQL::type('User'));
+            return GraphQL::type('User');
         }
 
         public function args(): array
@@ -68,7 +68,7 @@
     
                 $user = User::query()->where('email', 'LIKE', $args['email']);
     
-                return $user->get();
+                return $user->get()[0];
             
             }
             
