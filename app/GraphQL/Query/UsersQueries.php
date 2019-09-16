@@ -94,14 +94,15 @@
             ];
         }
 
-        public function resolve($root, $args, SelectFields $fields, ResolveInfo $info)
+        public function resolve($root, $args, $context, ResolveInfo $info)
         {
-            $select = $fields->getSelect();
-            $with = $fields->getRelations();
+            $fields = $info->getFieldSelection();
+            // $select = $fields->getSelect();
+            // $with = $fields->getRelations();
 
             $user = User::query()
                 ->where('id', $args['id_usuario']);
 
-            return $user->with($with)->get();
+            return $user->get();
         }
     }
