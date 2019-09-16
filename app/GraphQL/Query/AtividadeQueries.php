@@ -25,19 +25,19 @@
             return Type::listOf(GraphQL::type('Atividade'));
         }
 
-        public function resolve($root, $args, SelectFields $fields, ResolveInfo $info){
-            $select = $fields->getSelect();
-            $with = $fields->getRelations();
+        public function resolve($root, $args, $context, ResolveInfo $info){
+            // $select = $fields->getSelect();
+            // $with = $fields->getRelations();
 
-            if (isset($args['texto'])) {
-                $atividade = Atividade::query()
-                    ->where('titulo', 'LIKE', '%' . $args['texto'] . '%');
+            // if (isset($args['texto'])) {
+            //     $atividade = Atividade::query()
+            //         ->where('titulo', 'LIKE', '%' . $args['texto'] . '%');
     
-                return $atividade->with($with)->get();
-            }
+            //     return $atividade->with($with)->get();
+            // }
 
             $atividades = Atividade::query();
 
-            return $atividades->with($with)->get();
+            return $atividades->get();
         }
     }
