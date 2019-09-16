@@ -108,7 +108,8 @@ return [
             'mutation' => [
                 'signUp' => \App\GraphQL\Mutation\SignUpMutation::class,
                 'novaImagem' => \App\GraphQL\Mutation\NovaImagem::class,
-                'alterarImagem' => \App\GraphQL\Mutation\AlterarImagem::class
+                'alterarImagem' => \App\GraphQL\Mutation\AlterarImagem::class,
+                'novaAtividade' => \App\GraphQL\Mutation\NovaAtividade::class
             ],
             'middleware' => ['cors'],
             'method'     => ['get', 'post'],
@@ -126,7 +127,9 @@ return [
     //
     'types' => [
         'User' => \App\GraphQL\Type\UserType::class,
-        'Imagem' => \App\GraphQL\Type\ImagemType::class 
+        'Imagem' => \App\GraphQL\Type\ImagemType::class ,
+        'Atividade' => \App\GraphQL\Type\AtividadeType::class,
+        'AtividadeImagens' => \App\GraphQL\Type\AtividadeImagensType::class
         // 'example'           => ExampleType::class,
         // 'relation_example'  => ExampleRelationType::class,
         // \Rebing\GraphQL\Support\UploadType::class,
