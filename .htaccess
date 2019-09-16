@@ -4,15 +4,6 @@
     </IfModule>
 
     RewriteEngine On
-    # Mime Types
-    AddHandler text/css .css
-    AddType text/css .css
-
-    AddHandler text/javascript .js
-    AddType text/javascript .js
-
-    AddHandler text/html .html
-    AddType text/html .html
 
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
