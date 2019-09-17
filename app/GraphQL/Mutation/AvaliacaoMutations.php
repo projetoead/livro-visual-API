@@ -19,7 +19,7 @@ class NovaAvaliacao extends Mutation
     {
         return GraphQL::type('Avaliacao');
     }
-    public function fields(): array
+    public function args(): array
     {
         return [
             'id' => [

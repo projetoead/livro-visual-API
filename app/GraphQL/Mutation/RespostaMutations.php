@@ -20,7 +20,7 @@ class NovaResposta extends Mutation
         return GraphQL::type('Resposta');
     }
 
-    public function fields(): array
+    public function args(): array
     {
         return [
             'id_usuario' => [
