@@ -31,10 +31,10 @@ class BuscarRespostasQuery extends Query
     {
         $fields = $info->getFieldSelection();
 
-        if ($args['id_resposta']) {
+        if (isset($args['id_resposta'])) {
             $resposta = Resposta::query()
                 ->where('id', $args['id_resposta']);
-            return $resposta->get()[0];
+            return $resposta->get();
         }
 
         $respostas = Resposta::query();

@@ -31,10 +31,10 @@ class BuscarAvaliacoesQuery extends Query
     {
         $fields = $info->getFieldSelection();
 
-        if ($args['id_avaliacao']) {
+        if (isset($args['id_avaliacao'])) {
             $avaliacao = Avaliacao::query()
                 ->where('id', $args['id_avaliacao']);
-            return $avaliacao->get()[0];
+            return $avaliacao->get();
         }
 
         $avaliacoes = Avaliacao::query();
