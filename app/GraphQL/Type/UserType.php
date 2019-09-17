@@ -53,7 +53,19 @@ class UserType extends GraphQLType
             'updated_at' => [
                 'type' => Type::string(),
                 'description' => 'Date a was updated'
-            ]
+            ],
+            'atividades' =>[
+                'type' => Type::listOf(GraphQL::type('Atividade')),
+                'description' => 'Atividades cadastradas pelo usuário'
+            ],
+            'respostas' =>[
+                'type' => Type::listOf(GraphQL::type('Resposta')),
+                'description' => 'Respostas cadastradas pelo usuário'
+            ],
+            'avaliacoes' =>[
+                'type' => Type::listOf(GraphQL::type('Avaliacao')),
+                'description' => 'Avaliacoes cadastradas pelo usuário'
+            ],
         ];
     }
 

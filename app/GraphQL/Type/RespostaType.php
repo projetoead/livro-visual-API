@@ -46,6 +46,11 @@ class RespostaType extends GraphQLType
                 'type' =>Type::int(),
                 'description' => 'O status da atividade'
             ],
+            'atividade' => [
+                'type' => GraphQL::type('Atividade'),
+                'description' => 'A atividade da resposta'
+            ],
+            
         ];
     }
 
