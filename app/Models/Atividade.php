@@ -20,16 +20,20 @@ class Atividade extends Model
     ];
     
     public function usuario(){
-        return $this->hasMany(User::class, 'id_usuario', 'id');
+        return $this->belongsTo(User::class, 'id_usuario', 'id');
     }
 
     public function professor(){
-        return $this->hasMany(User::class, 'id_professor', 'id');
+        return $this->hasOne(User::class, 'id_professor', 'id');
     }
 
     public function imagens()
     {
         return $this->hasMany(AtividadeImagens::class, 'id_atividade', 'id');
+    }
+
+    public function respostas(){
+        return $this->hasMany(Resposta::class, 'id_atividade', 'id');
     }
     //
 }
