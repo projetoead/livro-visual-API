@@ -46,6 +46,14 @@ class AvaliacaoType extends GraphQLType
                 'type' =>Type::int(),
                 'description' => 'O status da atividade'
             ],
+            'created_at' => [
+                'type' => Type::string(),
+                'description' => 'Date a was created'
+            ],
+            'updated_at' => [
+                'type' => Type::string(),
+                'description' => 'Date a was updated'
+            ],
         ];
     }
 

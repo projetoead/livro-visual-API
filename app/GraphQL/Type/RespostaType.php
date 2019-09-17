@@ -54,7 +54,14 @@ class RespostaType extends GraphQLType
                 'type' => GraphQL::type('User'),
                 'description' => 'O usuário que cadastrou'
             ],
-            
+            'created_at' => [
+                'type' => Type::string(),
+                'description' => 'Date a was created'
+            ],
+            'updated_at' => [
+                'type' => Type::string(),
+                'description' => 'Date a was updated'
+            ],
         ];
     }
 

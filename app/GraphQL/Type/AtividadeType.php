@@ -61,7 +61,14 @@ class AtividadeType extends GraphQLType
                 'type' => Type::listOf(GraphQL::type('Resposta')),
                 'description' => 'As respostas da Atividade'
             ],
-
+            'created_at' => [
+                'type' => Type::string(),
+                'description' => 'Date a was created'
+            ],
+            'updated_at' => [
+                'type' => Type::string(),
+                'description' => 'Date a was updated'
+            ],
         ];
     }
 
