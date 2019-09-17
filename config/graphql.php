@@ -105,13 +105,17 @@ return [
                 'logIn' => \App\GraphQL\Query\LogInQuery::class,
                 'infoUsuario' => \App\GraphQL\Query\UserQuery::class,
                 'buscarAtividades' => \App\GraphQL\Query\BuscarAtividadesQuery::class,
-                'retornarAtividade' => \App\GraphQL\Query\RetornarAtividadeQuery::class
+                'retornarAtividade' => \App\GraphQL\Query\RetornarAtividadeQuery::class,
+                'buscarRespostas' => \App\GraphQL\Query\BuscarRespostasQuery::class,
+                'buscarAvaliacoes' => \App\GraphQL\Query\BuscarAvaliacoesQuery::class
             ],
             'mutation' => [
                 'signUp' => \App\GraphQL\Mutation\SignUpMutation::class,
                 'novaImagem' => \App\GraphQL\Mutation\NovaImagem::class,
                 'alterarImagem' => \App\GraphQL\Mutation\AlterarImagem::class,
-                'novaAtividade' => \App\GraphQL\Mutation\NovaAtividade::class
+                'novaAtividade' => \App\GraphQL\Mutation\NovaAtividade::class,
+                'novaResposta' => \App\GraphQL\Mutation\NovaResposta::class,
+                'novaAvaliacao' => \App\GraphQL\Mutation\NovaAvaliacao::class
             ],
             'middleware' => ['cors'],
             'method'     => ['get', 'post'],
@@ -131,7 +135,9 @@ return [
         'User' => \App\GraphQL\Type\UserType::class,
         'Imagem' => \App\GraphQL\Type\ImagemType::class ,
         'Atividade' => \App\GraphQL\Type\AtividadeType::class,
-        'AtividadeImagens' => \App\GraphQL\Type\AtividadeImagensType::class
+        'AtividadeImagens' => \App\GraphQL\Type\AtividadeImagensType::class,
+        'Resposta' => \App\GraphQL\Type\RespostaType::class,
+        'Avaliacao' => \App\GraphQL\Type\AvaliacaoType::class
         // 'example'           => ExampleType::class,
         // 'relation_example'  => ExampleRelationType::class,
         // \Rebing\GraphQL\Support\UploadType::class,
