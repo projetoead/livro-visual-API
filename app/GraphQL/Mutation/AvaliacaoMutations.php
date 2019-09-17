@@ -22,10 +22,6 @@ class NovaAvaliacao extends Mutation
     public function args(): array
     {
         return [
-            'id' => [
-                'type' => Type::nonNull(Type::int()),
-                'description' => 'O id da imagem'
-            ],
             'id_usuario' => [
                 'type' => Type::nonNull(Type::int()),
                 'description' => 'O id do usuário que cadastrou',
