@@ -50,6 +50,10 @@ class RespostaType extends GraphQLType
                 'type' => GraphQL::type('Atividade'),
                 'description' => 'A atividade da resposta'
             ],
+            'avaliacao' => [
+                'type' => GraphQL::type('Avaliacao'),
+                'description' => 'A avaliacao da resposta'
+            ],
             'usuario' => [
                 'type' => GraphQL::type('User'),
                 'description' => 'O usuário que cadastrou'
