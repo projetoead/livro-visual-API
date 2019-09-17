@@ -87,6 +87,10 @@ class SignUpMutation extends Mutation
             $imagem->link = $link['url'];
             $imagem->save();
             $user->id_imagem = $imagem->id;
+        } else{
+            $imagem = new Imagem;
+            $imagem->save();
+            $user->id_imagem = $imagem->id;
         }
         $user->fill($args);
         $user->password = bcrypt($args['password']);
