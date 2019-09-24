@@ -8,7 +8,7 @@ use GraphQL\Type\Definition\ResolveInfo;
 use Rebing\GraphQL\Support\Mutation;
 use GraphQL\Type\Definition\InputObjectType;
 use App\Models\Atividade;
-use App\Models\AtividadeImagens;
+use App\Models\RespostaImagens;
 use App\Models\Imagem;
 use GraphQL;
 
@@ -97,31 +97,31 @@ class NovaAtividade extends Mutation
 
     public function resolve($root, $args, $context, ResolveInfo $resolveInfo)
     {
-        \Cloudinary::config(array(
-            'cloud_name' => 'projetoead',
-            'api_key' => '617162164254321',
-            'api_secret' => '_OO4q-k2kVsKRhCIcq67S8bPTFs'
-        ));
+        // \Cloudinary::config(array(
+        //     'cloud_name' => 'projetoead',
+        //     'api_key' => '617162164254321',
+        //     'api_secret' => '_OO4q-k2kVsKRhCIcq67S8bPTFs'
+        // ));
 
-        $fields = $resolveInfo->getFieldSelection();
-        $id_imagens = [];
-        foreach($args['imagens'] as $value){
-            $imagem = new Imagem;
-            $link = \Cloudinary\Uploader::upload($value['baixa_resolucao']);
-            $imagem->link = $link['url'];
-            $imagem->save();
-            array_push($id_imagens, $imagem->id);
-        }
+        // $fields = $resolveInfo->getFieldSelection();
+        // $id_imagens = [];
+        // foreach($args['imagens'] as $value){
+        //     $imagem = new Imagem;
+        //     $link = \Cloudinary\Uploader::upload($value['baixa_resolucao']);
+        //     $imagem->link = $link['url'];
+        //     $imagem->save();
+        //     array_push($id_imagens, $imagem->id);
+        // }
         $atividade = new Atividade();
         $atividade->fill($args);
         $atividade->save();
 
-        foreach($id_imagens as $id_imagem){
-            $imagem_lancamento = new AtividadeImagens();
-            $imagem_lancamento->id_imagem = $id_imagem;
-            $imagem_lancamento->id_atividade = $atividade->id;
-            $imagem_lancamento->save();
-        }
+        // foreach($id_imagens as $id_imagem){
+        //     $imagem_lancamento = new RespostaImagens();
+        //     $imagem_lancamento->id_imagem = $id_imagem;
+        //     $imagem_lancamento->id_atividade = $atividade->id;
+        //     $imagem_lancamento->save();
+        // }
         return $atividade;
     }
 }
