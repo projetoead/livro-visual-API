@@ -8,7 +8,6 @@ use GraphQL\Type\Definition\ResolveInfo;
 use Rebing\GraphQL\Support\Mutation;
 use GraphQL\Type\Definition\InputObjectType;
 use App\Models\Atividade;
-use App\Models\RespostaImagens;
 use App\Models\Imagem;
 use GraphQL;
 
@@ -26,31 +25,6 @@ class NovaAtividade extends Mutation
 
     public function args(): array
     {
-        $imagens = new InputObjectType([
-            'name' => 'ImagensInput',
-            'fields' => [
-                'is_principal' => [
-                    'name' => 'is_principal',
-                    'type' => Type::boolean()
-                ],
-                'baixa_resolucao' => [
-                    'name' => 'baixa_resolucao',
-                    'type' => Type::string()
-                ],
-                'alta_resolucao' => [
-                    'name' => 'alta_resolucao',
-                    'type' => Type::string()
-                ],
-                'link' => [
-                    'name' => 'link',
-                    'type' => Type::string()
-                ],
-                'descricao_imagem' => [
-                    'name' => 'descricao',
-                    'type' => Type::string()
-                ]
-            ]
-        ]);
         return [
             'id_usuario' => [
                 'type' => Type::nonNull(Type::int()),
@@ -87,11 +61,7 @@ class NovaAtividade extends Mutation
             'status' => [
                 'type' =>Type::int(),
                 'description' => 'O status da atividade'
-            ],
-            'imagens' => [
-                'type' => Type::listOf($imagens),
-                'description' => 'Lista de Imagens da Atividade'
-            ],
+            ]
         ];
     }
 
