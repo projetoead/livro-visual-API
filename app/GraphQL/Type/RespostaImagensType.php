@@ -1,18 +1,18 @@
 <?php
-// app/GraphQL/Type/AtividadeImagensType.php
+// app/GraphQL/Type/RespostaImagensType.php
 namespace App\GraphQL\Type;
 
 use GraphQL;
 use GraphQL\Type\Definition\Type;
 use Rebing\GraphQL\Support\Type as GraphQLType;
-use App\Models\AtividadeImagens;
+use App\Models\RespostaImagens;
 
-class AtividadeImagensType extends GraphQLType
+class RespostaImagensType extends GraphQLType
 {
     protected $attributes = [
-        'name'        => 'AtividadeImagens',
+        'name'        => 'RespostaImagens',
         'description' => 'Imagens da Atividade',
-        'model'       => AtividadeImagens::class
+        'model'       => RespostaImagens::class
     ];
 
     public function fields():array{
@@ -21,13 +21,13 @@ class AtividadeImagensType extends GraphQLType
                 'type' => Type::nonNull(Type::int()),
                 'description' => 'O id da relação'
             ],
-            'id_atividade' => [
+            'id_resposta' => [
                 'type' => Type::nonNull(Type::int()),
-                'description' => 'O id da atividade da relação'
+                'description' => 'O id da resposta da relação'
             ],
-            'atividade' => [
+            'resposta' => [
                 'type' => GraphQL::type('Atividade'),
-                'description' => 'A atividade da relação'
+                'description' => 'A resposta da relação'
             ],
             'id_imagem' => [
                 'type' => Type::nonNull(Type::int()),

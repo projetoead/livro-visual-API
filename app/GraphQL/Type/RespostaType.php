@@ -58,6 +58,10 @@ class RespostaType extends GraphQLType
                 'type' => GraphQL::type('User'),
                 'description' => 'O usuário que cadastrou'
             ],
+            'imagens' => [
+                'type' => Type::listOf(GraphQL::type('RespostaImagens')),
+                'description' => 'Imagens da Atividade'
+            ],
             'created_at' => [
                 'type' => Type::string(),
                 'description' => 'Date a was created'

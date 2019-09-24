@@ -53,10 +53,6 @@ class AtividadeType extends GraphQLType
                 'type' =>Type::int(),
                 'description' => 'O status da atividade'
             ],
-            'imagens' => [
-                'type' => Type::listOf(GraphQL::type('AtividadeImagens')),
-                'description' => 'Imagens da Atividade'
-            ],
             'respostas' => [
                 'type' => Type::listOf(GraphQL::type('Resposta')),
                 'description' => 'As respostas da Atividade'
