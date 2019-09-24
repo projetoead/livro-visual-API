@@ -4,12 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class AtividadeImagens extends Model
+class RespostaImagens extends Model
 {
-    protected $table = 'atividade_imagens';
+    protected $table = 'resposta_imagens';
     
     protected $fillable = [
-        'id_atividade',
+        'id_resposta',
         'id_imagem'
     ];
 
@@ -23,13 +23,13 @@ class AtividadeImagens extends Model
         return $this->belongsTo(Imagem::class, 'id_imagem');
     }
 
-    public function atividade()
+    public function resposta()
     {
-        return $this->belongsTo(Atividade::class, 'id_atividade');
+        return $this->belongsTo(Resposta::class, 'id_resposta');
     }
 
-    public function atividadeImagens()
+    public function respostaImagens()
     {
-        return $this->hasMany(AtividadeImagens::class, 'id_atividade', 'id');
+        return $this->hasMany(RespostaImagens::class, 'id_resposta', 'id');
     }
 }

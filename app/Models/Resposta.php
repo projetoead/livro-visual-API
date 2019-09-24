@@ -25,6 +25,11 @@ class Resposta extends Model
         return $this->belongsTo(Atividade::class, 'id_atividade', 'id');
     }
 
+    public function imagens()
+    {
+        return $this->hasMany(RespostaImagens::class, 'id_resposta', 'id');
+    }
+
     public function avaliacao(){
         return $this->hasOne(Avaliacao::class, 'id_resposta', 'id');
     }

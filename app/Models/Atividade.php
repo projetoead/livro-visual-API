@@ -27,11 +27,6 @@ class Atividade extends Model
         return $this->hasOne(User::class, 'id_professor', 'id');
     }
 
-    public function imagens()
-    {
-        return $this->hasMany(AtividadeImagens::class, 'id_atividade', 'id');
-    }
-
     public function respostas(){
         return $this->hasMany(Resposta::class, 'id_atividade', 'id');
     }
