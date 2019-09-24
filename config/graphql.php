@@ -135,7 +135,7 @@ return [
         'User' => \App\GraphQL\Type\UserType::class,
         'Imagem' => \App\GraphQL\Type\ImagemType::class ,
         'Atividade' => \App\GraphQL\Type\AtividadeType::class,
-        'AtividadeImagens' => \App\GraphQL\Type\AtividadeImagensType::class,
+        'RespostaImagens' => \App\GraphQL\Type\RespostaImagensType::class,
         'Resposta' => \App\GraphQL\Type\RespostaType::class,
         'Avaliacao' => \App\GraphQL\Type\AvaliacaoType::class
         // 'example'           => ExampleType::class,
