@@ -22,6 +22,8 @@ class CreateAtividadesTable extends Migration
             $table->string('titulo');
             $table->longText('texto');
             $table->string('data_encerramento')->nullable();
+            $table->longText('descricao')->nullable();
+            $table->string('autor');
             $table->integer('status')->default(1);
             $table->timestamps();
         });

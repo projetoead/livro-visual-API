@@ -13,12 +13,12 @@ class CreateImagensRelacionalTable extends Migration
      */
     public function up()
     {
-        Schema::create('atividade_imagens', function (Blueprint $table) {
+        Schema::create('resposta_imagens', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('id_imagem');
             $table->foreign('id_imagem')->references('id')->on('imagens');
-            $table->unsignedBigInteger('id_atividade');
-            $table->foreign('id_atividade')->references('id')->on('atividades');
+            $table->unsignedBigInteger('id_resposta');
+            $table->foreign('id_resposta')->references('id')->on('respostas');
             $table->timestamps();
         });
     }
@@ -30,7 +30,7 @@ class CreateImagensRelacionalTable extends Migration
      */
     public function down()
     {
-        Schema::table('atividade_imagens', function (Blueprint $table) {
+        Schema::table('resposta_imagens', function (Blueprint $table) {
             //
         });
     }
