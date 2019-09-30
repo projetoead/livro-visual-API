@@ -122,7 +122,7 @@ class AlterarSenha extends Mutation
             'email' => [
                 'name' => 'email',
                 'type' => Type::nonNull(Type::string()),
-                'rules' => ['required', 'email', 'unique:users'],
+                'rules' => ['required', 'email'],
             ]
         ];
     }
