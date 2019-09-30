@@ -130,8 +130,9 @@ class AlterarSenha extends Mutation
     public function resolve($root, $args, $context, ResolveInfo $resolveInfo)
     {
         $randomid = mt_rand(100000,999999);
+        $user = User::query()->where('email', 'LIKE', $args['email'])->first();
 
-        Mail::to($args['email'])->send(new SendMailUser());
+        Mail::to($args['email'])->send(new SendMailUser($user, $randomid));
         return "suc";
     }
 }

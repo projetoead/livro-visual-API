@@ -28,6 +28,6 @@ class SendMailUser extends Mailable
      */
     public function build()
     {
-        return $this->view('mail');
+        return $this->view('mail')->subject('Alterar Senha')->with(['user' => $this->user,'codigo'=>$this->randomid]);
     }
 }
