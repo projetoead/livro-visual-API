@@ -184,10 +184,10 @@ class AlterarSenha extends Mutation
             $user->save();
             // generate token for user and return the token
             if ($user)
-                return response()->json(['message' => $user], 200);
+                return json_encode(['message' => $user, 'status'=>200]);
             else
-                return response()->json(['message' => $user], 500);
+                return json_encode(['message' => $user, 'status'=>500]);
         }
-        return response()->json(['message' => 'validation'], 500);
+        return json_encode(['message' => 'validation', 'status'=>500]);
     }
 }
