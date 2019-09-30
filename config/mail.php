@@ -16,7 +16,7 @@ return [
     |
     */
 
-    'driver' => env('MAIL_DRIVER', 'smtp'),
+    'driver' => ('MAIL_DRIVER', 'smtp'),
 
     /*
     |--------------------------------------------------------------------------
@@ -29,7 +29,7 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'smtp.gmail.com'),
+    'host' => ('MAIL_HOST', 'smtp.gmail.com'),
 
     /*
     |--------------------------------------------------------------------------
@@ -42,7 +42,7 @@ return [
     |
     */
 
-    'port' => env('MAIL_PORT', 587),
+    'port' => ('MAIL_PORT', 587),
 
     /*
     |--------------------------------------------------------------------------
@@ -56,8 +56,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'projetoeadatividades@gmail.com'),
-        'name' => env('MAIL_FROM_NAME', 'Livro Visual'),
+        'address' => ('MAIL_FROM_ADDRESS', 'projetoeadatividades@gmail.com'),
+        'name' => ('MAIL_FROM_NAME', 'Livro Visual'),
     ],
 
     /*
@@ -71,7 +71,7 @@ return [
     |
     */
 
-    'encryption' => env('MAIL_ENCRYPTION', 'tls'),
+    'encryption' => ('MAIL_ENCRYPTION', 'tls'),
 
     /*
     |--------------------------------------------------------------------------
@@ -84,9 +84,9 @@ return [
     |
     */
 
-    'username' => env('projetoeadatividades@gmail.com'),
+    'username' => ('projetoeadatividades@gmail.com'),
 
-    'password' => env('xjosaztbsqdmhgwa'),
+    'password' => ('xjosaztbsqdmhgwa'),
 
     /*
     |--------------------------------------------------------------------------
