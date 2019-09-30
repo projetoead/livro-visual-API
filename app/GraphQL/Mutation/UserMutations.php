@@ -11,6 +11,7 @@ use App\Models\Imagem;
 use GraphQL;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SendMailUser;
+use Illuminate\Support\Facades\DB;
 
 class SignUpMutation extends Mutation
 {
@@ -129,10 +130,16 @@ class AlterarSenha extends Mutation
 
     public function resolve($root, $args, $context, ResolveInfo $resolveInfo)
     {
-        $randomid = mt_rand(100000,999999);
         $user = User::query()->where('email', 'LIKE', $args['email'])->first();
+        if (isset($user)) {
+            $randomid = mt_rand(100000, 999999);
+            DB::table('password_resets')->updateOrInsert(['email' => $args['email']], ['token' => $randomid]);
+            Mail::to($args['email'])->send(new SendMailUser($user, $randomid));
+        } else{
+            return "not_found";
+        }
 
-        Mail::to($args['email'])->send(new SendMailUser($user, $randomid));
+
         return "suc";
     }
 }
