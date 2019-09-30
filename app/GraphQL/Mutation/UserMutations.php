@@ -106,10 +106,10 @@ class SignUpMutation extends Mutation
     }
 }
 
-class AlterarSenha extends Mutation
+class SolicitarCodigo extends Mutation
 {
     protected $attributes = [
-        'name' => 'alterarSenha'
+        'name' => 'solicitarCodigo'
     ];
 
     public function type(): Type
@@ -135,11 +135,59 @@ class AlterarSenha extends Mutation
             $randomid = mt_rand(100000, 999999);
             DB::table('password_resets')->updateOrInsert(['email' => $args['email']], ['token' => $randomid]);
             Mail::to($args['email'])->send(new SendMailUser($user, $randomid));
-        } else{
+        } else {
             return "not_found";
         }
 
 
         return "suc";
+    }
+}
+
+class AlterarSenha extends Mutation
+{
+    protected $attributes = [
+        'name' => 'alterarSenha'
+    ];
+
+    public function type(): Type
+    {
+        return GraphQL::type('User');
+    }
+
+    public function args(): array
+    {
+        return [
+            'email' => [
+                'name' => 'email',
+                'type' => Type::nonNull(Type::string()),
+                'rules' => ['required', 'email'],
+            ],
+            'password' => [
+                'name' => 'password',
+                'type' => Type::nonNull(Type::string()),
+                'rules' => ['required'],
+            ],
+            'token' => [
+                'name' => 'token',
+                'type' => Type::nonNull(Type::string()),
+                'rules' => ['required', 'token'],
+            ]
+        ];
+    }
+    public function resolve($root, $args, $context, ResolveInfo $resolveInfo)
+    {
+        $recuperar = DB::table('password_resets')->where('email', $args['email'])->where('token', $args['token'])->first();
+        if(isset($recuperar)){
+            $user = User::query()->where('email', 'LIKE', $args['email'])->first();
+            $user->password = bcrypt($args['password']);
+            $user->save();
+            // generate token for user and return the token
+            if ($user)
+                return auth()->login($user);
+            else
+                return response()->json(['message' => $user], 500);
+        }
+        return response()->json(['message' => 'validation'], 500);
     }
 }

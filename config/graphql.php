@@ -116,6 +116,7 @@ return [
                 'novaAtividade' => \App\GraphQL\Mutation\NovaAtividade::class,
                 'novaResposta' => \App\GraphQL\Mutation\NovaResposta::class,
                 'novaAvaliacao' => \App\GraphQL\Mutation\NovaAvaliacao::class,
+                'solicitarCodigo' => \App\GraphQL\Mutation\SolicitarCodigo::class,
                 'alterarSenha' => \App\GraphQL\Mutation\AlterarSenha::class
             ],
             'middleware' => ['cors'],
