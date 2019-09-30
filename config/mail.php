@@ -86,7 +86,7 @@ return [
 
     'username' => env('projetoeadatividades@gmail.com'),
 
-    'password' => env('cngftoyblutfphex'),
+    'password' => env('xjosaztbsqdmhgwa'),
 
     /*
     |--------------------------------------------------------------------------
