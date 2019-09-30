@@ -114,7 +114,7 @@ class SolicitarCodigo extends Mutation
 
     public function type(): Type
     {
-        return Type::string();;
+        return Type::string();
     }
 
     public function args(): array
@@ -152,7 +152,7 @@ class AlterarSenha extends Mutation
 
     public function type(): Type
     {
-        return GraphQL::type('User');
+        return Type::string()();
     }
 
     public function args(): array
@@ -184,7 +184,7 @@ class AlterarSenha extends Mutation
             $user->save();
             // generate token for user and return the token
             if ($user)
-                return auth()->login($user);
+                return response()->json(['message' => $user], 200);
             else
                 return response()->json(['message' => $user], 500);
         }
