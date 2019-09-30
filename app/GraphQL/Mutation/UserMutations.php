@@ -171,7 +171,7 @@ class AlterarSenha extends Mutation
             'token' => [
                 'name' => 'token',
                 'type' => Type::nonNull(Type::string()),
-                'rules' => ['required', 'token'],
+                'rules' => ['required']
             ]
         ];
     }
