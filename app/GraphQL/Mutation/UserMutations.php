@@ -9,6 +9,8 @@ use Rebing\GraphQL\Support\Mutation;
 use App\Models\User;
 use App\Models\Imagem;
 use GraphQL;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendMailUser;
 
 class SignUpMutation extends Mutation
 {
@@ -76,7 +78,7 @@ class SignUpMutation extends Mutation
     {
         $fields = $resolveInfo->getFieldSelection();
         $user = new User;
-        if($args['baixa_resolucao']){
+        if ($args['baixa_resolucao']) {
             $imagem = new Imagem;
             \Cloudinary::config(array(
                 'cloud_name' => 'projetoead',
@@ -87,7 +89,7 @@ class SignUpMutation extends Mutation
             $imagem->link = $link['url'];
             $imagem->save();
             $user->id_imagem = $imagem->id;
-        } else{
+        } else {
             $imagem = new Imagem;
             $imagem->save();
             $user->id_imagem = $imagem->id;
@@ -100,5 +102,36 @@ class SignUpMutation extends Mutation
             return auth()->login($user);
         else
             return response()->json(['message' => $user], 500);
+    }
+}
+
+class AlterarSenha extends Mutation
+{
+    protected $attributes = [
+        'name' => 'alterarSenha'
+    ];
+
+    public function type(): Type
+    {
+        return Type::string();;
+    }
+
+    public function args(): array
+    {
+        return [
+            'email' => [
+                'name' => 'email',
+                'type' => Type::nonNull(Type::string()),
+                'rules' => ['required', 'email', 'unique:users'],
+            ]
+        ];
+    }
+
+    public function resolve($root, $args, $context, ResolveInfo $resolveInfo)
+    {
+        $randomid = mt_rand(100000,999999);
+
+        Mail::to($args['email'])->send(new SendMailUser());
+        return "suc";
     }
 }
