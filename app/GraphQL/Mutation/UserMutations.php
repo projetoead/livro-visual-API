@@ -152,7 +152,7 @@ class AlterarSenha extends Mutation
 
     public function type(): Type
     {
-        return Type::string()();
+        return Type::string();
     }
 
     public function args(): array
